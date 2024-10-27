@@ -17,4 +17,9 @@ public class Node implements Serializable {
 	public Node() {
 		// TODO Auto-generated constructor stub
 	}
+
+	public void SetValue(String v) {
+		// TODO Auto-generated method stub
+		value = v;
+	}
 }

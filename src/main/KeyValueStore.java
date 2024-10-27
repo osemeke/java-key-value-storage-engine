@@ -3,17 +3,23 @@ package main;
 
 public class KeyValueStore implements Store {
 	
-	InMemoryOperation o;
-	
+	InMemoryOperation memory;
+	FileOperation fo;		
+
 	public KeyValueStore() {
-		o = new InMemoryOperation();
+		memory = new InMemoryOperation();
+		fo = new FileOperation();
 	}
 
 	@Override
 	public void put(long key, String value) {
-        Node root = o.getRoot();
-		o.insert(root, key, value);
+		var memtable = fo.loadCommitLog();
+		Node root = null;
+		if (memtable.size() > 0) root = memtable.getFirst();		
+		var nr = memory.insert(root, key, value);
 		System.out.println("new insertion!");
+		memory.inorder(nr);
+		memory.flush();
 	}
 
 	@Override
