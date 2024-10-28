@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
-import main.Config;
+import common.Config;
 
 public class FileOperation {
 	

@@ -1,6 +1,9 @@
 package main;
 
 import java.util.LinkedList;
+
+import common.Config;
+
 import java.lang.instrument.Instrumentation;
 
 public class InMemoryOperation {

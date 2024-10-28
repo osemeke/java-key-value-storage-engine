@@ -1,8 +1,11 @@
-package main;
+package common;
 
 import java.io.File;
 
 public class Config {
+
+	public static String SERVER = "localhost";
+	public static int PORT = 3000;
 
 	public static String BASE_PATH = "C:\\Users\\Ossy\\Videos\\LSM Trees\\projectfiles";
 	public static String DIRECTORY = "testfolder";

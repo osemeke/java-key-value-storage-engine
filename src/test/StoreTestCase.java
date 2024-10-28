@@ -22,14 +22,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import main.Config;
+import common.Config;
 import main.FileOperation;
 import main.InMemoryOperation;
 import main.KeyValueStore;
 import main.Node;
 
 class StoreTestCase {
-
 
 	@ParameterizedTest
 	@MethodSource("KeyValueStorePutTest")
@@ -58,52 +57,6 @@ class StoreTestCase {
 				Arguments.of(20, "Edirin", expect)
 		);
 	}
-	
-	// @Test
-	final void test() throws IOException {
-		InMemoryOperation o = new InMemoryOperation();
-
-		Node root = null;
-
-		root = o.insert(root, 50, "good");
-		root = o.insert(root, 90, "to");
-		root = o.insert(root, 30, "know");
-		root = o.insert(root, 30, "this");
-		root = o.insert(root, 20, "thing");
-		root = o.insert(root, 40, "will");
-		root = o.insert(root, 70, "work");
-		root = o.insert(root, 60, "at");
-		root = o.insert(root, 80, "the");
-		root = o.insert(root, 10, "1000th");
-		root = o.insert(root, 80, "trial");
-
-		// Print inorder traversal of the BST
-		o.inorder(root);
-
-		
-		FileOperation fo = new FileOperation();		
-
-    	long memsize = fo.getFileSize(Config.COMMIT_LOG_FILE); // InstrumentationAgent.getObjectSize(memtable);
-    	System.out.print("SIZE: " + memsize + "\n");
-    	
-		System.out.print("CHECKING LOAD\n");
-
-//		FileOperation fo = new FileOperation();		
-//		var list = fo.loadCommitLog();
-//		for (Node n : list) {
-//			System.out.print(n.key + " ----> " + n.value + "\n");
-//		}
-		// PrintWriter writer = new PrintWriter(p, "UTF-8");
-		// fo.writeLog(root, writer);
-
-		// byte data[] = ...
-		// String data = "wertyuiok sdfghj";
-		// byte[] b = data.getBytes(StandardCharsets.UTF_8); // Java 7+ only
-
-
-		fail("Not yet implemented");
-	}
-
 
 
 }
